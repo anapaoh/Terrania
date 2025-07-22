@@ -1,25 +1,27 @@
-const Company = require('../models/company');
+const pool = require('../util/database');
 
 class HomeController {
   static async index(req, res) {
     try {
-      const companyInfo = await Company.getCompanyInfo();
-      const brands = await Company.getBrands();
+      const companyInfo = { 
+        mission: '...',
+        vision: '...'
+      };
       
+      const result = await pool.query('SELECT * FROM marcas ORDER BY id_marca');
+      const marcas = result.rows;
+
       res.render('home', {
         title: 'Terranía - Productos Naturales de Hidalgo',
-        companyInfo: companyInfo || {
-          mission: 'Impulsar el consumo de productos naturales y artesanales elaborados en el estado de Hidalgo, los cuales contribuyan a la creación de una sola salud, promoviendo la producción limpia, así como la comercialización con responsabilidad y precios justos.',
-          vision: 'Consolidarse como una empresa Hidalguense comprometida con el desarrollo social equitativo, a través del cuidado de la salud de nuestros consumidores, productores y estando en armonía con un ambiente sano; impulsando la conservación de la cultura y raíces mexicanas.'
-        },
-        brands: brands.slice(0, 6), // Mostrar solo las primeras 6 marcas en home
+        companyInfo,
+        marcas,
         showHero: true
       });
     } catch (error) {
-      console.error('Error en HomeController:', error);
-      res.status(500).render('error', { 
+      console.error(error);
+      res.status(500).render('error', {
         title: 'Error',
-        message: 'Error interno del servidor' 
+        message: 'Error interno del servidor'
       });
     }
   }

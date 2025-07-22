@@ -18,11 +18,11 @@ app.use(express.json());
 // Rutas
 const homeRoutes = require('./routes/HomeRoutes');
 const aboutRoutes = require('./routes/aboutRoutes');
-const brandsRoutes = require('./routes/brandsRoutes');
+
 
 app.use('/', homeRoutes);
 app.use('/nosotros', aboutRoutes);
-app.use('/marcas', brandsRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);

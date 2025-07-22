@@ -1,80 +1,99 @@
-{{#if showHero}}
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <h1 class="hero-title">Terranía</h1>
-            <p class="hero-subtitle">Productos naturales y artesanales del corazón de Hidalgo</p>
-            <p class="hero-description">
-                Conectamos la riqueza natural y cultural de Hidalgo con productos 
-                auténticos que cuidan tu salud y preservan nuestras tradiciones.
-            </p>
-            <div class="hero-buttons">
-                <a href="/nosotros" class="btn btn-primary">Conoce Más</a>
-                <a href="/marcas" class="btn btn-secondary">Nuestras Marcas</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="/images/hero-hidalgo.jpg" alt="Paisaje de Hidalgo" 
-                 onerror="this.src='/images/placeholder-hero.jpg';">
-        </div>
-    </div>
-</section>
-{{/if}}
+<%- include('includes/_header') %>
 
-<section class="mission-vision">
-    <div class="container">
-        <div class="mission-vision-grid">
-            <div class="mission-card">
-                <div class="card-icon">
-                    <i class="fas fa-target"></i>
-                </div>
-                <h2>Nuestra Misión</h2>
-                <p>{{companyInfo.mission}}</p>
-            </div>
-            
-            <div class="vision-card">
-                <div class="card-icon">
-                    <i class="fas fa-eye"></i>
-                </div>
-                <h2>Nuestra Visión</h2>
-                <p>{{companyInfo.vision}}</p>
-            </div>
-        </div>
+<header class="hero-section">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="/videos/fondo1.MOV" type="video/mp4" />
+      Tu navegador no soporta videos HTML5.
+    </video>
+  
+    <div class="hero-overlay"></div>
+  
+    <div class="hero-content text-center">
+      <h1 class="display-4 fw-bold mb-3">Impulsamos Marcas Rurales</h1>
+      <p class="lead mb-4">
+        Conectamos comunidades Hidalguenses con clientes en todo el país.
+        Apoya y compra productos auténticos y de calidad.
+      </p>
+      <a href="#productos" class="btn btn-lg btn-outline-light">Explora Productos</a>
     </div>
-</section>
+  
+    <div class="hero-bottom-fade"></div>
+  </header>  
 
-{{#if brands}}
-<section class="featured-brands">
-    <div class="container">
-        <h2 class="section-title">Marcas Colaboradoras Destacadas</h2>
-        <div class="brands-grid">
-            {{#each brands}}
-            <div class="brand-card">
-                <div class="brand-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3>{{this.name}}</h3>
-                <p>{{this.description}}</p>
-                <span class="brand-location">
-                    <i class="fas fa-map-marker-alt"></i> {{this.location}}
-                </span>
-            </div>
-            {{/each}}
-        </div>
-        <div class="section-cta">
-            <a href="/marcas" class="btn btn-outline">Ver Todas las Marcas</a>
-        </div>
+  <section id="mision" class="mision-section">
+    <div class="container-start fade-bottom">
+      <h2>Misión</h2>
+      <p>
+        Impulsar el consumo de productos naturales y artesanales elaborados en el estado de Hidalgo,
+        los cuales contribuyan a la creación de una sola salud, promoviendo la producción limpia,
+        así como la comercialización con responsabilidad y precios justos.
+      </p>
     </div>
-</section>
-{{/if}}
+  </section>
+  
+  <section id="vision" class="vision-section">
+    <div class="container-start fade-bottom">
+      <h2>Visión</h2>
+      <p>
+        Aqui quiero que vaya la imagen con slide
+        Consolidarse como una empresa Hidalguense comprometida con el desarrollo social equitativo, a través del cuidado de la salud de nuestros consumidores, productores y estando en armonía con un ambiente sano;
+impulsando la conservación de la cultura y raíces mexicanas.
+      </p>
+    </div>
+  </section>
 
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2>Únete a Nuestra Misión</h2>
-            <p>Forma parte de una comunidad comprometida con productos naturales, 
-               comercio justo y el desarrollo sustentable de Hidalgo.</p>
-            <a href="/nosotros" class="btn btn-primary">Conoce Más</a>
+  <h2 class="titulo-marcas fade-bottom">Nuestras Marcas</h2>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% marcas.forEach(marca => { %>
+        <div class="swiper-slide">
+          <div class="card-marca">
+            <img class="image-marca" src="/images/marcas/<%= marca.id_marca %>.png" alt="<%= marca.nombre %>">
+  
+            <div class="card-info">
+              <h5 class="card-title"><%= marca.nombre %></h5>
+              <a href="/marcas/<%= marca.id_marca %>" class="btn-ver-mas">Ver más</a>
+            </div>
+          </div>
         </div>
+      <% }) %>
     </div>
-</section>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+  
+  <section id="ubicaciones" class="ubicaciones-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Nuestras Ubicaciones</h2>
+  
+      <<div id="map" class="map-container"></div>
+  
+      <div id="location-info" class="mt-4 p-3 border rounded">
+        <p>Selecciona una ubicación en el mapa para ver más información.</p>
+      </div>
+    </div>
+  </section>  
+  
+
+  <footer id="contacto" class="bg-dark text-light py-5">
+    <div class="container text-center">
+      <h3 class="mb-3 fw-bold">Contáctanos</h3>
+      <p>Email: contacto@raicesrurales.org | Teléfono: +52 123 456 7890</p>
+      <p>Síguenos en redes sociales</p>
+      <div class="social-icons fs-3">
+        <a href="#" class="text-light mx-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-light mx-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-light mx-2" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+      </div>
+      <p class="mt-4">&copy; 2025 Raíces Rurales. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <script src="/js/scripts.js"></script>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/mapa.js"></script>
+</body>
+</html>
