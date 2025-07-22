@@ -23,15 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("scroll", checkVisibility);
-    checkVisibility(); // Verifica al cargar
+    checkVisibility();
 
 
-    
+
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 20,
+        slidesPerView: 3,
+        spaceBetween: 10,
         mousewheel: true,
-        loop: true,
+        loop: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -39,15 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
         breakpoints: {
           0: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 50,
           },
           768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+            slidesPerView: 1,
+            spaceBetween: 7,
           },
           1024: {
-            slidesPerView: 4,
-            spaceBetween: 30,
+            slidesPerView: 3,
+            spaceBetween: 10,
           }
         }
       });

@@ -1,0 +1,26 @@
+.footer {
+    background: #1e1e1e;
+    color: #f8f9fa;
+  }
+  
+  .footer h3, .footer h4 {
+    font-weight: 600;
+  }
+  
+  .footer p, .footer a {
+    font-size: 0.95rem;
+  }
+  
+  .footer .social-link {
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .footer .social-link:hover {
+    color: #28a745; /* verde suave */
+  }
+  
+  .footer .footer-bottom {
+    font-size: 0.85rem;
+    color: #ccc;
+  }  
