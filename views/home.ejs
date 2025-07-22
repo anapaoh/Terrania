@@ -1,0 +1,80 @@
+{{#if showHero}}
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">Terranía</h1>
+            <p class="hero-subtitle">Productos naturales y artesanales del corazón de Hidalgo</p>
+            <p class="hero-description">
+                Conectamos la riqueza natural y cultural de Hidalgo con productos 
+                auténticos que cuidan tu salud y preservan nuestras tradiciones.
+            </p>
+            <div class="hero-buttons">
+                <a href="/nosotros" class="btn btn-primary">Conoce Más</a>
+                <a href="/marcas" class="btn btn-secondary">Nuestras Marcas</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/images/hero-hidalgo.jpg" alt="Paisaje de Hidalgo" 
+                 onerror="this.src='/images/placeholder-hero.jpg';">
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<section class="mission-vision">
+    <div class="container">
+        <div class="mission-vision-grid">
+            <div class="mission-card">
+                <div class="card-icon">
+                    <i class="fas fa-target"></i>
+                </div>
+                <h2>Nuestra Misión</h2>
+                <p>{{companyInfo.mission}}</p>
+            </div>
+            
+            <div class="vision-card">
+                <div class="card-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h2>Nuestra Visión</h2>
+                <p>{{companyInfo.vision}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{#if brands}}
+<section class="featured-brands">
+    <div class="container">
+        <h2 class="section-title">Marcas Colaboradoras Destacadas</h2>
+        <div class="brands-grid">
+            {{#each brands}}
+            <div class="brand-card">
+                <div class="brand-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>{{this.name}}</h3>
+                <p>{{this.description}}</p>
+                <span class="brand-location">
+                    <i class="fas fa-map-marker-alt"></i> {{this.location}}
+                </span>
+            </div>
+            {{/each}}
+        </div>
+        <div class="section-cta">
+            <a href="/marcas" class="btn btn-outline">Ver Todas las Marcas</a>
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Únete a Nuestra Misión</h2>
+            <p>Forma parte de una comunidad comprometida con productos naturales, 
+               comercio justo y el desarrollo sustentable de Hidalgo.</p>
+            <a href="/nosotros" class="btn btn-primary">Conoce Más</a>
+        </div>
+    </div>
+</section>
