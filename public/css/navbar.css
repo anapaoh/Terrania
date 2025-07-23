@@ -1,0 +1,59 @@
+.navbar-custom {
+    background: linear-gradient(
+      135deg,
+      rgba(139, 195, 74, 0.7),
+      rgba(46, 125, 50, 0.7)
+    );
+    border-radius: 30px;
+    margin: 10px 15px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+  }
+  
+  .navbar-hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  
+  .navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link {
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease, background 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  
+  .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-cta {
+    background-color: #c7e25a;
+    color: #2E7D32;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-cta:hover {
+    background-color: #e2fd35;
+    transform: translateY(-2px);
+  }  

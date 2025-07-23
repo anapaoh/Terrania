@@ -1,0 +1,78 @@
+<%- include('includes/_header') %>
+
+<header class="hero-section">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="/videos/fondo1.MOV" type="video/mp4" />
+      Tu navegador no soporta videos HTML5.
+    </video>
+  
+    <div class="hero-overlay"></div>
+  
+    <div class="hero-content text-center">
+      <h1 class="display-4 fw-bold mb-3">Productos sanos que unen al campo y la ciudad
+      </h1>
+      <p class="lead mb-4">
+        Conectamos comunidades Hidalguenses con clientes en todo el país.
+        Apoya y compra productos auténticos y de calidad.
+      </p>
+      <a href="#productos" class="btn btn-lg btn-outline-light">Explora Productos</a>
+    </div>
+  
+    <div class="hero-bottom-fade"></div>
+  </header>  
+
+  <section id="mision" class="mision-section">
+    <div class="container-start fade-bottom">
+      <h2>Misión</h2>
+      <p>
+        Impulsar el consumo de productos naturales y artesanales elaborados en el estado de Hidalgo,
+        los cuales contribuyan a la creación de una sola salud, promoviendo la producción limpia,
+        así como la comercialización con responsabilidad y precios justos.
+      </p>
+    </div>
+  </section>
+  
+  <section id="vision" class="vision-section">
+    <div class="container-start fade-bottom">
+      <h2>Visión</h2>
+      <p>
+        Aqui quiero que vaya la imagen con slide
+        <br>
+        Consolidarse como una empresa Hidalguense comprometida con el desarrollo social equitativo, a través del cuidado de la salud de nuestros consumidores, productores y estando en armonía con un ambiente sano;
+impulsando la conservación de la cultura y raíces mexicanas.
+      </p>
+    </div>
+  </section>
+
+  <h2 class="titulo-marcas fade-bottom">Nuestras Marcas</h2>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% marcas.forEach(marca => { %>
+        <div class="swiper-slide">
+          <div class="card-marca">
+            <img class="image-marca" src="/images/marcas/<%= marca.id_marca %>.png" alt="<%= marca.nombre %>">
+  
+            <div class="card-info">
+              <h5 class="card-title"><%= marca.nombre %></h5>
+              <a href="/marcas/<%= marca.id_marca %>" class="btn-ver-mas">Ver más</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+  
+  <section id="ubicaciones" class="ubicaciones-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Nuestras Ubicaciones</h2>
+      <div id="map" class="map-container"></div>
+      <div id="location-info" class="mt-4 p-3 border rounded">
+        <p>Selecciona una ubicación en el mapa para ver más información.</p>
+      </div>
+    </div>
+  </section>
+
+<%- include('includes/_footer') %>

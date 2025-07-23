@@ -1,0 +1,32 @@
+{
+  "name": "terrania",
+  "version": "1.0.0",
+  "description": "Proyecto MVC de Terrania",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anapaoh/Terrania.git"
+  },
+  "keywords": [],
+  "author": "Ana Paola Hernandez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anapaoh/Terrania/issues"
+  },
+  "homepage": "https://github.com/anapaoh/Terrania#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
