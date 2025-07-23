@@ -1,0 +1,92 @@
+/* ===== Panel lateral (offcanvas) ===== */
+.side-panel {
+    color: #333;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    max-width: 400px; /* estilo tipo Dior */
+  }
+  
+  /* ===== Carrito general ===== */
+  .cart {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .basket,
+  .basket-empty {
+    display: none;
+    width: 100%;
+  }
+  
+  .cart[data-empty="false"] .basket {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .cart[data-empty="true"] .basket-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* ===== Lista de productos con scroll ===== */
+  .basket_product-cards {
+    flex: 1; /* ocupa todo el espacio libre */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+  
+  /* ===== Footer fijo ===== */
+  .basket_footer {
+    background: #fff;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  /* ===== Cada producto ===== */
+  .basket_product {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .basket_product .producto-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+  }
+  
+  .basket_product h6 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .basket_product small {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .basket_product p.fw-bold {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  /* ===== Botones ===== */
+  .btn-dark {
+    background-color: #000;
+    border: none;
+  }
+  
+  .btn-dark:hover {
+    background-color: #222;
+  }
+  

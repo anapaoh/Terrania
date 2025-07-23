@@ -16,6 +16,7 @@
 />
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/navbar.css" />
+  <link rel="stylesheet" href="/css/carrito.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
@@ -34,7 +35,7 @@
           <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
             <button class="btn btn-cta" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCompra">
-              ¡Compra ahora!
+              <i class="bi bi-cart"></i>
             </button>
           </li>          
         </ul>
@@ -42,21 +43,38 @@
     </div>
   </nav>  
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCompra">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Tu carrito</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <p>Aquí aparecerán los productos que agregues a tu carrito.</p>
-      <ul class="list-group mb-3">
-        <!-- Ejemplo producto -->
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Producto 1
-          <span class="badge bg-success rounded-pill">$120</span>
-        </li>
-      </ul>
-      <button class="btn btn-success w-100">Finalizar compra</button>
+  
+<div class="offcanvas offcanvas-end side-panel" tabindex="-1" id="offcanvasCompra" aria-labelledby="offcanvasCompraLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasCompraLabel">Carrito</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <div class="cart" data-empty="true">
+      
+      <!-- Carrito vacío -->
+      <div class="basket-empty text-center py-5">
+        <p class="text-muted mt-3 mb-0">Tu carrito está vacío</p>
+      </div>
+  
+      <!-- Carrito con productos -->
+      <div class="basket">
+        <!-- Scroll solo aquí -->
+        <div class="basket_product-cards" id="lista-carrito">
+          <!-- Productos dinámicos aquí -->
+        </div>
+  
+        <!-- Footer fijo abajo -->
+        <div class="basket_footer pt-3 border-top">
+          <div class="d-flex justify-content-between mb-2">
+            <strong>Total:</strong>
+            <span id="total-carrito" class="fw-bold">$0</span>
+          </div>
+          <button class="btn btn-dark w-100">Finalizar compra</button>
+        </div>
+      </div>
     </div>
   </div>
-  
+    
+</div>
