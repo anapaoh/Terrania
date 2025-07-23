@@ -5,7 +5,7 @@
       rgba(46, 125, 50, 0.7)
     );
     border-radius: 30px;
-    margin: 10px 15px; /* Deja espacio para que se vean las esquinas */
+    margin: 10px 15px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
@@ -17,11 +17,9 @@
   }
   
   .navbar-hidden {
-    transform: translateY(-120%); /* Se oculta completamente */
+    transform: translateY(-120%);
     opacity: 0;
   }
-  
-  
   
   .navbar-brand {
     font-family: 'Poppins', sans-serif;

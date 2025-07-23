@@ -1,0 +1,185 @@
+<%- include('includes/_header') %>
+
+<link rel="stylesheet" href="/css/productos.css" />
+
+<section id="slogan" class="slogan-section">
+  <h2 class="reveal">Productos sanos que unen al campo y la ciudad</h2>
+</section>
+
+<section class="product-section position-relative">
+  <video class="product-video" autoplay muted loop playsinline>
+    <source src="/videos/productos.MOV" type="video/mp4" />
+    Tu navegador no soporta videos HTML5.
+  </video>
+
+  <div class="product-overlay"></div>
+
+  <div class="hero-content text-center position-absolute top-50 start-50 translate-middle text-white">
+    <h1 class="display-4 fw-bold mb-3 reveal">Terranía</h1>
+  </div>
+
+  <div class="product-bottom-fade"></div>
+</section>
+
+<section id="alimentos" class="alimentos-section my-5">
+  <h2 class="mb-4 text-center reveal">Alimentos</h2>
+</section>
+
+<section id="alimentos" class="alimentos-section my-5">
+    <div class="row g-0">
+      <% if (alimentos && alimentos.length > 0) { %>
+        <% alimentos.forEach(producto => { %>
+          <div class="col-12 col-md-4">
+            <div class="card card-sin-borde h-100">
+              <div class="producto-img" style="background-image: url('/images/productos/<%= producto.id_producto %>.jpg');">
+              <button class="btn-agregar">
+                <i class="bi bi-cart"></i>
+              </button>
+              </div>
+              <div class="contenido-producto">
+                <h5><%= producto.nombre %></h5>
+                <p><%= producto.descripcion || "Sin descripción" %></p>
+                <p>$<%= producto.precio %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center">No hay alimentos disponibles.</p>
+      <% } %>
+    </div>
+  </section>
+  
+  <section id="alimentos" class="alimentos-section my-5">
+    <h2 class="mb-4 text-center reveal">Bebidas</h2>
+  </section>
+
+  <section id="bebidas" class="bebidas-section my-5">
+    <div class="row g-0">
+      <% if (bebidas && bebidas.length > 0) { %>
+        <% bebidas.forEach(producto => { %>
+          <div class="col-12 col-md-4">
+            <div class="card card-sin-borde h-100 position-relative overflow-hidden">
+              <div 
+                class="producto-img" 
+                style="background-image: url('/images/productos/<%= producto.id_producto %>.jpg');">
+                <button class="btn-agregar">
+                  <i class="bi bi-cart"></i>
+                </button>
+              </div>
+              <div class="contenido-producto">
+                <h5><%= producto.nombre %></h5>
+                <p><%= producto.descripcion || "Sin descripción" %></p>
+                <p>$<%= producto.precio %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center">No hay bebidas disponibles.</p>
+      <% } %>
+    </div>
+  </section>
+  
+
+
+  <section id="alimentos" class="alimentos-section my-5">
+    <h2 class="mb-4 text-center reveal">Herbolaria</h2>
+  </section>
+
+  <section id="herbolaria" class="herbolaria-section my-5">
+    <div class="row g-0">
+      <% if (herbolaria && herbolaria.length > 0) { %>
+        <% herbolaria.forEach(producto => { %>
+          <div class="col-12 col-md-4">
+            <div class="card card-sin-borde h-100 position-relative overflow-hidden">
+              <div 
+                class="producto-img" 
+                style="background-image: url('/images/productos/<%= producto.id_producto %>.jpg');">
+                <button class="btn-agregar">
+                  <i class="bi bi-cart"></i>
+                </button>
+              </div>
+              <div class="contenido-producto">
+                <h5><%= producto.nombre %></h5>
+                <p><%= producto.descripcion || "Sin descripción" %></p>
+                <p>$<%= producto.precio %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center">No hay productos de herbolaria disponibles.</p>
+      <% } %>
+    </div>
+  </section>
+
+
+  <section id="alimentos" class="alimentos-section my-5">
+    <h2 class="mb-4 text-center reveal">Ecotecnias</h2>
+  </section>
+
+  <section id="ecotecnias" class="ecotecnias my-5">
+    <div class="row g-0">
+      <% if (ecotecnias && ecotecnias.length > 0) { %>
+        <% ecotecnias.forEach(producto => { %>
+          <div class="col-12 col-md-4">
+            <div class="card card-sin-borde h-100 position-relative overflow-hidden">
+              <div 
+                class="producto-img" 
+                style="background-image: url('/images/productos/<%= producto.id_producto %>.jpg');">
+                <button class="btn-agregar">
+                  <i class="bi bi-cart"></i>
+                </button>
+              </div>
+              <div class="contenido-producto">
+                <h5><%= producto.nombre %></h5>
+                <p><%= producto.descripcion || "Sin descripción" %></p>
+                <p>$<%= producto.precio %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center">No hay ecotecnias disponibles.</p>
+      <% } %>
+    </div>
+  </section>
+
+
+
+  <section id="alimentos" class="alimentos-section my-5">
+    <h2 class="mb-4 text-center reveal">Textiles</h2>
+  </section>
+
+  <section id="textiles" class="textiles my-5">
+    <div class="row g-0">
+      <% if (textiles && textiles.length > 0) { %>
+        <% textiles.forEach(producto => { %>
+          <div class="col-12 col-md-4">
+            <div class="card card-sin-borde h-100 position-relative overflow-hidden">
+              <div 
+                class="producto-img" 
+                style="background-image: url('/images/productos/<%= producto.id_producto %>.jpg');">
+                <button class="btn-agregar">
+                  <i class="bi bi-cart"></i>
+                </button>
+              </div>
+              <div class="contenido-producto">
+                <h5><%= producto.nombre %></h5>
+                <p><%= producto.descripcion || "Sin descripción" %></p>
+                <p>$<%= producto.precio %></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center">No hay textiles disponibles.</p>
+      <% } %>
+    </div>
+  </section>
+
+
+<script src="/js/productos.js"></script>
+
+<%- include('includes/_footer') %>

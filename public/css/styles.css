@@ -67,7 +67,7 @@ body {
 .mision-section {
     display: flex;
     padding: 80px 100px;
-    background-color: #FEFAE0; /* verde oscuro */
+    background-color: rgb(254, 250, 224); /* verde oscuro */
     color: #40470A;
   }
 
