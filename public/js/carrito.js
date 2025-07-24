@@ -3,7 +3,7 @@ const listaCarrito = document.getElementById('lista-carrito');
 const totalCarrito = document.getElementById('total-carrito');
 const offcanvasCompra = new bootstrap.Offcanvas(document.getElementById('offcanvasCompra'));
 
-// Función para guardar carrito en localStorage
+/* ---------- GUARDAR EN LOCALSTORAGE ---------- */
 function guardarCarritoLocalStorage() {
   const productos = [];
   listaCarrito.querySelectorAll('.basket_product').forEach(prod => {
@@ -12,24 +12,27 @@ function guardarCarritoLocalStorage() {
       descripcion: prod.querySelector('small').textContent,
       precio: parseFloat(prod.dataset.precio),
       cantidad: parseInt(prod.querySelector('.cantidad').textContent),
-      imagen: prod.querySelector('.producto-img').getAttribute('style'),
+      imagen: prod.querySelector('.producto-img').getAttribute('style')
     });
   });
   localStorage.setItem('carrito', JSON.stringify(productos));
 }
 
-// Función para cargar carrito desde localStorage al iniciar
+/* ---------- CARGAR DESDE LOCALSTORAGE (AL ENTRAR A CUALQUIER RUTA) ---------- */
 function cargarCarritoDesdeLocalStorage() {
-  const productos = JSON.parse(localStorage.getItem('carrito') || '[]');
-  productos.forEach(({nombre, descripcion, precio, cantidad, imagen}) => {
-    // Crear producto igual que cuando se agrega, pero con la cantidad guardada
+  const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '[]');
+  carritoGuardado.forEach(({ nombre, descripcion, precio, cantidad, imagen }) => {
     const productoCarrito = document.createElement('div');
     productoCarrito.classList.add('basket_product', 'd-flex', 'align-items-center', 'mb-3');
     productoCarrito.dataset.precio = precio;
 
     productoCarrito.innerHTML = `
       <div class="d-flex align-items-center flex-grow-1">
-        <div class="producto-img" style="width:95px; height:95px; border-radius:5px; background-size:cover; background-position:center; ${imagen};"></div>
+        <div class="producto-img" 
+            style="width:95px; height:95px; border-radius:5px;
+                    background-size:cover; background-position:center; 
+                    ${imagen};">
+        </div>
         <div class="ms-2">
           <h6 class="mb-0">${nombre}</h6>
           <small class="text-muted d-block">${descripcion}</small>
@@ -45,17 +48,32 @@ function cargarCarritoDesdeLocalStorage() {
 
       <button class="btn btn-sm btn-danger ms-2 btn-eliminar" aria-label="Eliminar producto">&times;</button>
     `;
-
     listaCarrito.appendChild(productoCarrito);
   });
+
   actualizarEstadoCarrito();
 }
 
-// Al cargar la página, cargar el carrito guardado
+/* ---------- ACTUALIZAR CARRITO Y TOTAL ---------- */
+function actualizarEstadoCarrito() {
+  let total = 0;
+  listaCarrito.querySelectorAll('.basket_product').forEach(prod => {
+    const cantidad = parseInt(prod.querySelector('.cantidad').textContent);
+    const precioUnitario = parseFloat(prod.dataset.precio);
+    total += cantidad * precioUnitario;
+  });
+
+  totalCarrito.textContent = `$${total.toFixed(2)}`;
+  const empty = listaCarrito.children.length === 0;
+  cart.setAttribute('data-empty', empty);
+}
+
+/* ---------- CARGAR CARRITO AL INICIAR ---------- */
 window.addEventListener('DOMContentLoaded', () => {
   cargarCarritoDesdeLocalStorage();
 });
 
+/* ---------- AGREGAR PRODUCTO ---------- */
 document.querySelectorAll('.btn-agregar').forEach(btn => {
   btn.addEventListener('click', function () {
     const card = this.closest('.card');
@@ -78,7 +96,7 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
 
     const productoCarrito = document.createElement('div');
     productoCarrito.classList.add('basket_product', 'd-flex', 'align-items-center', 'mb-3');
-    productoCarrito.setAttribute('data-precio', precio);
+    productoCarrito.dataset.precio = precio;
 
     productoCarrito.innerHTML = `
       <div class="d-flex align-items-center flex-grow-1">
@@ -87,7 +105,6 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
                     background-size:cover; background-position:center; 
                     ${card.querySelector('.producto-img').getAttribute('style')};">
         </div>
-
         <div class="ms-2">
           <h6 class="mb-0">${nombre}</h6>
           <small class="text-muted d-block">${descripcion}</small>
@@ -103,7 +120,6 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
 
       <button class="btn btn-sm btn-danger ms-2 btn-eliminar" aria-label="Eliminar producto">&times;</button>
     `;
-
     listaCarrito.appendChild(productoCarrito);
 
     actualizarEstadoCarrito();
@@ -112,6 +128,7 @@ document.querySelectorAll('.btn-agregar').forEach(btn => {
   });
 });
 
+/* ---------- EVENTOS DE SUMAR/RESTAR/ELIMINAR ---------- */
 listaCarrito.addEventListener('click', e => {
   const productoCarrito = e.target.closest('.basket_product');
   if (!productoCarrito) return;
@@ -141,15 +158,7 @@ listaCarrito.addEventListener('click', e => {
   }
 });
 
-function actualizarEstadoCarrito() {
-  let total = 0;
-  listaCarrito.querySelectorAll('.basket_product').forEach(prod => {
-    const cantidad = parseInt(prod.querySelector('.cantidad').textContent);
-    const precioUnitario = parseFloat(prod.dataset.precio);
-    total += cantidad * precioUnitario;
-  });
-
-  totalCarrito.textContent = `$${total.toFixed(2)}`;
-  const empty = listaCarrito.children.length === 0;
-  cart.setAttribute('data-empty', empty);
-}
+/* ---------- FINALIZAR COMPRA ---------- */
+document.getElementById('btn-finalizar-compra').addEventListener('click', () => {
+  window.location.href = '/checkout';
+});

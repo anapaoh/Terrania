@@ -7,3 +7,4 @@ router.get('/marcas', HomeController.marcas);
 router.get('/contacto', HomeController.contacto);
 
 module.exports = router;
+  

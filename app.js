@@ -17,11 +17,14 @@ app.use(express.json());
 // Rutas
 const homeRoutes = require('./routes/home.routes');
 const aboutRoutes = require('./routes/aboutRoutes');
-const productosRoutes = require('./routes/productos.routes'); // <-- Importa rutas productos
+const productosRoutes = require('./routes/productos.routes');
+const checkoutRoutes = require('./routes/checkout.routes');
+
 
 app.use('/', homeRoutes);
 app.use('/nosotros', aboutRoutes);
-app.use('/', productosRoutes); // <-- Usa rutas productos
+app.use('/', productosRoutes);
+app.use('/', checkoutRoutes);
 
 // Servidor
 app.listen(PORT, () => {

@@ -1,0 +1,89 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FEFAE0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .checkout-form h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  
+  /* Contenedor a pantalla completa */
+  .checkout-container {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* ocupa toda la pantalla */
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    
+  }
+  
+  /* Formulario (66% del ancho) */
+  .checkout-form {
+    flex: 2; /* equivale al 66% */
+    background: #fcfbf3;
+    border: none;
+    border-radius: 0;
+    padding-left: 7rem;
+    padding-top: 5rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  /* Resumen (33% del ancho) */
+  .checkout-summary {
+    flex: 1; /* equivale al 33% */
+    background: #eeeacc;
+    border: none;
+    border-radius: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: auto; /* permite scroll si es necesario */
+  }
+  
+  /* Productos */
+  .basket_product-cards {
+    overflow-y: auto;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+  
+  .basket_product {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .basket_product .producto-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+  }
+  
+  .basket_footer {
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+  }
+  
+  .btn-dark {
+    background-color: #000;
+    border: none;
+  }
+  
+  .btn-dark:hover {
+    background-color: #222;
+  }  
