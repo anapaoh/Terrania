@@ -1,56 +1,78 @@
-<link rel="stylesheet" href="/css/checkout.css" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="/css/checkout.css">
+</head>
 
-<div class="checkout-container">
-  <!-- FORMULARIO DE DATOS DEL CLIENTE -->
-  <div class="checkout-form">
-    <h2 class="mb-4">Finalizar compra</h2>
-    
-    <!-- Este form solo se usa para los datos y el carrito -->
-    <form id="form-checkout" method="POST" action="/procesar-compra" class="h-100">
-      <input type="hidden" name="carritoJSON" id="carritoJSON">
+<body>
+  <!-- ENCABEZADO -->
+  <section id="header-checkout" class="header-checkout my-5">
+    <h2>Terranía</h2>
+  </section>
 
-      <div class="mb-3">
-        <label class="form-label">Nombre completo</label>
-        <input type="text" class="form-control" name="nombre" required>
-      </div>
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="checkout-container">
+    <!-- FORMULARIO DE DATOS DEL CLIENTE -->
+    <div class="checkout-form">
+      <h2 class="mb-4">Finalizar compra</h2>
+      
+      <form id="form-checkout" method="POST" action="/procesar-compra" class="h-100">
+        <input type="hidden" name="carritoJSON" id="carritoJSON">
 
-      <div class="mb-3">
-        <label class="form-label">Correo electrónico</label>
-        <input type="email" class="form-control" name="email" required>
-      </div>
+        <div class="mb-3">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" name="nombre" required>
+        </div>
 
-      <div class="mb-3">
-        <label class="form-label">Dirección de envío</label>
-        <textarea class="form-control" name="direccion" rows="3" required></textarea>
-      </div>
-    </form>
+        <div class="mb-3">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
 
-    <!-- STRIPE PAYMENT FORM (SEPARADO PARA EVITAR ANIDAMIENTO) -->
-    <div class="mt-4">
-      <h5>Pagar con tarjeta</h5>
-      <form id="payment-form">
-        <div id="payment-element"><!-- Stripe genera aquí el formulario --></div>
-        <button id="submit" class="btn btn-primary mt-3 w-100">Pagar ahora</button>
-        <div id="payment-message" class="mt-2 text-success" style="display: none;"></div>
+        <div class="mb-3">
+          <label class="form-label">Dirección de envío</label>
+          <textarea class="form-control" name="direccion" rows="3" required></textarea>
+        </div>
       </form>
-    </div>
-  </div>
 
-  <!-- PANEL LATERAL (Resumen) -->
-  <div class="checkout-summary">
-    <h5 class="mb-3">Resumen de tu pedido</h5>
-    <div class="basket_product-cards" id="resumen-carrito">
-      <!-- Productos del carrito se cargan dinámicamente -->
+      <!-- STRIPE PAYMENT FORM -->
+      <div class="mt-4">
+        <h5>Pagar con tarjeta</h5>
+        <form id="payment-form">
+          <div id="payment-element"></div>
+          <button id="submit" class="btn btn-primary mt-3 w-100">Pagar ahora</button>
+          <div id="payment-message" class="mt-2 text-success" style="display: none;"></div>
+        </form>
+      </div>
     </div>
 
-    <div class="basket_footer">
-      <div class="d-flex justify-content-between mb-2 border-top pt-2">
-        <strong>Total:</strong>
-        <span id="total-resumen" class="fw-bold">$0</span>
+    <div class="mt-4">
+      <h5>O pagar con PayPal</h5>
+      <div id="paypal-button-container"></div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=MXN"></script>
+    
+
+    <!-- PANEL LATERAL (Resumen) -->
+    <div class="checkout-summary">
+      <h5 class="mb-3">Resumen de tu pedido</h5>
+      <div class="basket_product-cards" id="resumen-carrito">
+      </div>
+
+      <div class="basket_footer">
+        <div class="d-flex justify-content-between mb-2 border-top pt-2">
+          <strong>Total:</strong>
+          <span id="total-resumen" class="fw-bold">$0</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script src="/js/checkout.js"></script>
-<script src="https://js.stripe.com/v3/"></script>
+  <!-- SCRIPTS -->
+  <script src="/js/checkout.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</body>
+</html>

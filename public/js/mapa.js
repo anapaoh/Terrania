@@ -31,19 +31,42 @@ function initMap() {
   
       const ubicaciones = [
         {
-          nombre: "Oficina Central - Pachuca",
-          coords: [20.123, -98.736],
-          info: "Nuestra oficina principal en Pachuca de Soto, Hidalgo.",
+          nombre: "Terranía",
+          coords: [20.10082568018709, -98.75089666541818],
+          info: "Nuestra oficina principal(Huhusehe) en Pachuca de Soto, Hidalgo.",
         },
         {
-          nombre: "Sucursal Tulancingo",
-          coords: [20.959, -98.366],
-          info: "Sucursal en Tulancingo para atención regional.",
+          nombre: "Arte Xiyo Lana",
+          coords: [20.663054799601703, -99.1352020599059],
+          info: "Arte Xiyo Lana se encuentra en Santuario, Hidalgo.",
         },
         {
-          nombre: "Centro de Distribución - Tula",
-          coords: [20.051, -99.300],
-          info: "Centro de distribución ubicado en Tula de Allende.",
+          nombre: "Xoxoc",
+          coords: [20.234668615282654, -99.54111540409696],
+          info: "Xoxoc se encuentra en Santa María Amealco, Hidalgo.",
+        },
+
+        {
+          nombre: "Mashei",
+          coords: [20.544834924033538, -99.29567854350984],
+          info: "Fábrica Vino de Granada Mashei y Tienda Artesanal se encuentra en La Vega, Hidalgo.",
+        },
+
+        {
+          nombre: "Yonancy",
+          coords: [20.145622795563465, -98.19229545436473],
+          info: "Yonancy se encuentra en Acaxochitlán, Hidalgo.",
+        },
+
+        {
+          nombre: "Jamädi",
+          coords: [19.3770821555232, -99.22614313767754],
+          info: "Jamädi se encuentra en Ciudad de México, Cd. de México.",
+        },
+        {
+          nombre: "Arte Lugo",
+          coords: [20.50614535710517, -99.20619310223817],
+          info: "Arte Lugo se encuentra en Ixmiquilpan, Hidalgo.",
         },
       ];
   

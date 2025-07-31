@@ -1,2 +1,20 @@
 <%- include('includes/_header') %>
+<link rel="stylesheet" href="/css/marcas.css">
+
+<section class="marcas-section container-fluid px-4 py-5">
+    <h2 class="mb-5 text-center"></h2>
+    <h2 class="mb-5 text-center">Marcas Colaboradoras</h2>
+    <div class="row justify-content-center g-4">
+        <% marcas.forEach(marca => { %>
+            <div class="col-md-6">
+            <div class="marca-card p-4 shadow-sm">
+            <h4 class="mb-2"><%= marca.nombre %></h4>
+            <p class="mb-1"><strong>Teléfono:</strong> <%= marca.numero_telefono %></p>
+            <p class="mb-1"><strong>Correo:</strong> <%= marca.correo %></p>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</section>
+
 <%- include('includes/_footer') %>

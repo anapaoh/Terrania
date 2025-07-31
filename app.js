@@ -19,12 +19,13 @@ const homeRoutes = require('./routes/home.routes');
 const aboutRoutes = require('./routes/aboutRoutes');
 const productosRoutes = require('./routes/productos.routes');
 const checkoutRoutes = require('./routes/checkout.routes');
-
+const marcasRoutes = require('./routes/marcas.routes');
 
 app.use('/', homeRoutes);
 app.use('/nosotros', aboutRoutes);
 app.use('/', productosRoutes);
 app.use('/', checkoutRoutes);
+app.use('/marcas', marcasRoutes);
 
 // Servidor
 app.listen(PORT, () => {

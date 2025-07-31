@@ -30,6 +30,10 @@ class HomeController {
     res.render('marcas', { title: 'Terranía - Marcas' });
   }
 
+  static nombremarcas(req,res){
+    res.render('marcas/nombre', {nombre});
+  }
+
   static contacto(req, res) {
     res.render('contacto', { title: 'Terranía - Contacto' });
   }

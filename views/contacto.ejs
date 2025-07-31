@@ -1,0 +1,88 @@
+<%- include('includes/_header') %>
+
+<!-- Estilos personalizados -->
+<link rel="stylesheet" href="/css/contacto.css">
+
+<!-- Leaflet CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-sA+e2U+3iD5FeTxQv+ZObH1k02xGAPr7I7i4z07Zt3A="
+  crossorigin=""
+/>
+
+
+<section class="hero-visual d-flex align-items-center justify-content-center">
+  <div class="overlay"></div>
+  <div class="text-center text-white hero-content">
+    <h1 class="display-4 fw-semibold">Contáctanos</h1>
+    <p class="lead">Conecta con Terranía y sé parte del cambio natural</p>
+  </div>
+</section>
+
+<section class="container contenido-contacto my-5">
+  <div class="row g-5">
+
+    <div class="col-md-6">
+      <div class="contact-card">
+        <h5>Redes Sociales</h5>
+        <p>
+          <i class="bi bi-facebook me-2 text-primary"></i>
+          <a href="https://www.facebook.com/Terraniamx" target="_blank" rel="noopener noreferrer">
+            facebook.com/TerraniaMX
+          </a>
+        </p>
+        <p>
+          <i class="bi bi-instagram me-2 text-danger"></i>
+          <a href="https://www.instagram.com/terraniamx/" target="_blank" rel="noopener noreferrer">
+            @terraniamx
+          </a>
+        </p>
+      </div>
+
+      <div class="contact-card mt-4">
+        <h5><i class="bi bi-envelope-fill me-2"></i>Correo</h5>
+        <p><a href="mailto:contacto@terrania.com">contacto@terrania.com</a></p>
+      </div>
+
+      <div class="contact-card mt-4">
+        <h5><i class="bi bi-telephone-fill me-2"></i>Teléfonos</h5>
+        <p>+52 1 555 555 5555</p>
+        <p>+52 1 556 666 6666</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="contact-card d-flex flex-column justify-content-between h-100">
+        <div>
+          <h5><i class="bi bi-geo-alt-fill me-2"></i>Dirección</h5>
+          <p>Plaza de las Américas, Blvd. Valle de San Javier 301, Local C31,<br> Pachuca de Soto, Hgo.</p>
+          <div id="map-contacto" style="height: 280px; border-radius: 10px; margin-top: 10px;"></div>
+        </div>
+
+        <div class="mt-4">
+          <h6 class="mb-3">¿Prefieres escribirnos?</h6>
+          <a href="mailto:contacto@terrania.com?subject=Consulta general" class="btn btn-outline-dark me-2 mb-2">
+            <i class="bi bi-envelope"></i> Correo
+          </a>
+          <a href="https://wa.me/7713013183?text=Hola%20Terranía%2C%20me%20gustaría%20obtener%20más%20información." target="_blank" class="btn btn-success mb-2">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<%- include('includes/_footer') %>
+
+<script defer src="/js/contacto.js"></script>
+
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-o9N1j6zp2ZELwmaFk5e5fQK1Y5Yd7Q5gDw3t64U3uhA="
+  crossorigin=""
+  defer
+></script>

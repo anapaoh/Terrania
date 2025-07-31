@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/anapaoh/Terrania#readme",
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "body-parser": "^2.2.0",
     "dotenv": "^17.2.0",
     "ejs": "^3.1.10",

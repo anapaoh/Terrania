@@ -1,318 +1,227 @@
 :root {
-    --primary-color: rgb(46, 125, 50);
-    --secondary-color: rgb(76, 175, 80);
-    --accent-color: rgb(139, 195, 74);
-    --earth-color: #8D6E63;
-    --warm-color: #FF8F00;
-    --text-dark: #1B1B1B;
-    --text-light: #666666;
-    --background-light: #F8F9FA;
-    --white: #FFFFFF;
-    --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
-    --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
-    --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
-    --border-radius: 8px;
-    --transition: all 0.3s ease;
+  --verde-principal: #2f5d32;
+  --verde-secundario: #3f8043;
+  --gris-texto: #444;
+  --sombra-suave: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --espaciado-seccion: 6rem;
+  --radio-borde: 12px;
 }
 
+/* ======================
+   GENERAL
+====================== */
 body {
-    margin: 0;
-    background-color: #FEFAE0;
-  }
-  
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: var(--gris-texto);
+}
+
+.section-block {
+  padding: var(--espaciado-seccion) 0;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--verde-principal);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--gris-texto);
+  text-align: justify;
+}
+
+/* ======================
+   HERO SECTION
+====================== */
 .hero-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-  }
-  
-  .hero-overlay {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.3);
-    transition: background 0.3s ease, backdrop-filter 0.3s ease;
-    backdrop-filter: blur(0);
-    -webkit-backdrop-filter: blur(0);
-  }
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  overflow: hidden;
+}
 
-  
-  .hero-content {
-    position: relative;
-    z-index: 4;
-    max-width: 700px;
-    text-align: center;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-  }
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
-/* ===== Sección Misión ===== */
-.mision-section {
-    display: flex;
-    padding: 80px 100px;
-    background-color: rgb(254, 250, 224); /* verde oscuro */
-    color: #40470A;
-  }
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
+  z-index: 1;
+}
 
-  
-  .container-start {
-    flex: 1 1 100%; 
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    padding-left: 0rem;
-    margin-left: 0%;
-  }
-  
-  
-  .mision-section h2 {
-    font-size: 50px;
-    color: #899941;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+}
 
-  .mision-section h2::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background-color: #619225;
-    border-radius: 2px;
-  } 
-  
-  section.mision-section p {
-    font-size: 25px;
-    line-height: 1.8;
-    color: #474f0c;
-    text-transform: uppercase;
-  }
-  
-  /* Animación fade-right */
-  .fade-bottom {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-  }
-  
-  .fade-bottom.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Responsive móvil */
-  @media (max-width: 768px) {
-    .mision-section h2 {
-      font-size: 2.5rem; /* más pequeño */
-    }
-  
-    .mision-section p {
-      font-size: 1.2rem; /* más pequeño */
-      line-height: 1.8;
-    }
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
 
-  }
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
 
-/* ===== Sección Misión ===== */
-.vision-section {
-    display: flex;
-    padding: 80px 100px;
-    background-color: #FEFAE0; /* verde oscuro */
-    color: #40470A;
-  }
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  background: linear-gradient(to top, #fff, transparent);
+  z-index: 1;
+}
 
-  
-  .container-start {
-    flex: 1 1 100%; 
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    padding-left: 0rem;
-    margin-left: 0%;
-  }
-  
-  
-  .vision-section h2 {
-    font-size: 50px;
-    color: #899941;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+/* ======================
+   VISION IMAGE
+====================== */
+.vision-image-slide img {
+  width: 100%;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+}
 
-  .vision-section h2::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background-color: #619225;
-    border-radius: 2px;
-  } 
-  
-  section.vision-section p {
-    font-size: 25px;
-    line-height: 1.8;
-    color: #474f0c;
-    text-transform: uppercase;
-  }
-  
-  /* Animación fade-right */
-  .fade-bottom {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-  }
-  
-  .fade-bottom.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Responsive móvil */
-  @media (max-width: 768px) {
-    .vision-section h2 {
-      font-size: 2.5rem; /* más pequeño */
-    }
-  
-    .vision-section p {
-      font-size: 1.2rem; /* más pequeño */
-      line-height: 1.8;
-    }
-
-  }
-
-/* Marcas en Terrania */
-
-/* Tipografía bonita y centrado */
-.titulo-marcas {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2E7D32;
-    margin-bottom: 30px;
-    letter-spacing: 1.2px;
-  }
-  
-  
-.swiper {
-    width: 100%;
-    padding: 30px 0;
-  }
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    /* para que las cards tengan el mismo tamaño y alineación */
-  }
-/* Contenedor principal del card */
+/* ======================
+   MARCAS
+====================== */
 .card-marca {
-    width: 100%;
-    max-width: 600px; /* antes 300px → ahora al doble */
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
+  background: white;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  padding: 2rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  text-align: center;
+  height: 100%;
+}
+
+.card-marca:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.image-marca {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.btn-ver-mas {
+  background-color: var(--verde-principal);
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+.btn-ver-mas:hover {
+  background-color: var(--verde-secundario);
+}
+
+/* ======================
+   MAP
+====================== */
+.map-container {
+  border: 1px solid #ccc;
+  height: 400px;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+}
+
+/* ======================
+   ANIMACIONES
+====================== */
+.fade-in {
+  animation: fadeIn 1s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+/* Tablet (≤ 991px) */
+@media (max-width: 991px) {
+  .section-block {
+    padding: 4rem 1.5rem;
   }
-  
-  .card-marca:hover {
-    transform: scale(1.03);
+
+  .hero-content h1 {
+    font-size: 2.75rem;
   }
-  
-  .image-marca {
-    width: 100%;
-    height: 400%;
-    object-fit: cover;
-    display: block;
+
+  .hero-content p {
+    font-size: 1.1rem;
   }
-  
-  /* Caja del texto sobre el video */
-  .card-info {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
-  
-  /* Título */
-  .card-title {
-    margin: 0;
+
+  .section-title {
     font-size: 2rem;
   }
-  
-  /* Botón */
+
+  .section-text {
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile (≤ 576px) */
+@media (max-width: 576px) {
+  .hero-section {
+    height: auto;
+    padding: 4rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-text {
+    font-size: 0.95rem;
+  }
+
+  .card-marca {
+    padding: 1.2rem;
+  }
+
   .btn-ver-mas {
-    display: inline-block;
-    margin-top: 5px;
-    padding: 5px 10px;
-    background-color: #2E7D32;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
-  
-  .btn-ver-mas:hover {
-    background-color: #4CAF50;
-  }
-  
 
-  /* === Sección de Ubicaciones === */
-  .ubicaciones-section {
-    background-color: #FEFAE0;
-    padding-top: 100px; /* Para compensar navbar fixed */
-  }
-  
   .map-container {
-    height: 400px;
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 300px;
   }
-  
-  #location-info {
-    min-height: 100px;
-    background-color: #f8f6ec;
-  }
-
-/* Texto general */
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #084921;
-    background-color: #FEFAE0;
-    line-height: 1.6;
-  }  
+}

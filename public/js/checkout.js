@@ -1,39 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
-    const resumen = document.getElementById('resumen-carrito');
-    const totalResumen = document.getElementById('total-resumen');
-    const hiddenInput = document.getElementById('carritoJSON');
-  
-    if (carrito.length === 0) {
-      resumen.innerHTML = '<p class="text-muted">Tu carrito está vacío.</p>';
-    } else {
-      let total = 0;
-      carrito.forEach(item => {
-        total += item.precio * item.cantidad;
-  
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('basket_product');
-        productDiv.innerHTML = `
-          <div class="producto-img" style="${item.imagen}"></div>
-          <div>
-            <h6 class="mb-0">${item.nombre}</h6>
-            <small class="text-muted d-block">x${item.cantidad}</small>
-            <p class="mb-0 fw-bold">$${(item.precio * item.cantidad).toFixed(2)}</p>
-          </div>
-        `;
-        resumen.appendChild(productDiv);
-      });
-  
-      totalResumen.textContent = `$${total.toFixed(2)}`;
-    }
-  
-    document.getElementById('form-checkout').addEventListener('submit', () => {
-      hiddenInput.value = JSON.stringify(carrito);
-    });
-  });  
-
-  let stripe, elements;
-
 document.addEventListener('DOMContentLoaded', async () => {
   const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
   const resumen = document.getElementById('resumen-carrito');
@@ -113,3 +77,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 });
+
+
+// --- PAYPAL BUTTON ---
+paypal.Buttons({
+  createOrder: async () => {
+    const res = await fetch('/crear-pedido-paypal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ total: totalCompra })
+    });
+
+    const data = await res.json();
+    return data.id;
+  },
+  onApprove: async (data, actions) => {
+    const capture = await actions.order.capture();
+    window.location.href = "/pago-exitoso"; // redirección si quieres
+  },
+  onCancel: () => {
+    alert("Pago cancelado");
+  },
+  onError: err => {
+    console.error(err);
+    alert("Hubo un problema con PayPal");
+  }
+}).render('#paypal-button-container');

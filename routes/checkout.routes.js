@@ -1,13 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const ProductosController = require('../controllers/productos.controller');
-const CheckoutController = require('../controllers/checkout.controller'); // ✅ IMPORTA EL CONTROLADOR
+const checkoutController = require('../controllers/checkout.controller');
 
-// Página de checkout
-router.get('/checkout', (req, res) => {
-    res.render('checkout');
-});
-
-router.post('/crear-payment-intent', CheckoutController.crearPaymentIntent);
+router.post('/crear-payment-intent', checkoutController.crearPaymentIntent);
+router.post('/crear-pedido-paypal', checkoutController.crearPedidoPayPal);
 
 module.exports = router;
