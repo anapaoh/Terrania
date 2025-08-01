@@ -93,7 +93,7 @@ paypal.Buttons({
   },
   onApprove: async (data, actions) => {
     const capture = await actions.order.capture();
-    window.location.href = "/pago-exitoso"; // redirección si quieres
+    window.location.href = "/pago-exitoso";
   },
   onCancel: () => {
     alert("Pago cancelado");

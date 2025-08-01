@@ -1,4 +1,4 @@
-const Producto = require('../models/productos.model');
+const Producto = require('../models/producto.model');
 
 exports.sincronizarProductoDesdeExcel = async (req, res) => {
   try {

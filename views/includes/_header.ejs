@@ -37,49 +37,51 @@
             <button class="btn btn-cta" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCompra">
               <i class="bi bi-cart"></i>
             </button>
-          </li> 
-          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-            <button class="btn btn-cta" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCompra">
-              <a class="nav-link" href="https://www.nuhusehe.org/" target="_blank">Conoce Nuhusehe</a>
-            </button>
-          </li>
+          </li>          
         </ul>
       </div>
     </div>
-  </nav>
-
+  </nav> 
+   
+  <div class="offcanvas offcanvas-end side-panel" tabindex="-1" id="offcanvasCompra" aria-labelledby="offcanvasCompraLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasCompraLabel">Carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
   
-  
-<div class="offcanvas offcanvas-end side-panel" tabindex="-1" id="offcanvasCompra" aria-labelledby="offcanvasCompraLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasCompraLabel">Carrito</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <div class="cart" data-empty="true">
+    <div class="offcanvas-body">
       
-      <!-- Carrito vacío -->
-      <div class="basket-empty text-center py-5">
-        <p class="text-muted mt-3 mb-0">Tu carrito está vacío</p>
+      <div id="detalleProductoContenedor" style="display:none; margin-bottom:1rem;">
+        <h5 id="detalleProductoNombre"></h5>
+        <p id="detalleProductoDescripcion"></p>
+        <div id="detalleProductoImagen" style="width:120px; height:120px; background-size:cover; background-position:center; border-radius:5px;"></div>
+        <div id="selectorVariantes" style="margin-top:1rem; display:none;">
+          <label for="selectVariante" class="form-label">Elige una variante:</label>
+          <select id="selectVariante" class="form-select"></select>
+        </div>
+        <button id="btnAgregarCarrito" class="btn btn-success mt-3">Agregar al carrito</button>
+        <hr>
       </div>
   
-      <!-- Carrito con productos -->
-      <div class="basket">
-        <!-- Scroll solo aquí -->
-        <div class="basket_product-cards" id="lista-carrito">
-          <!-- Productos dinámicos aquí -->
+      <div class="cart" data-empty="true">
+        <div class="basket-empty text-center py-5">
+          <p class="text-muted mt-3 mb-0">Tu carrito está vacío</p>
         </div>
-  
-        <!-- Footer fijo abajo -->
-        <div class="basket_footer pt-3 border-top">
-          <div class="d-flex justify-content-between mb-2">
-            <strong>Total:</strong>
-            <span id="total-carrito" class="fw-bold">$0</span>
+    
+        <div class="basket">
+          <!-- Scroll solo aquí -->
+          <div class="basket_product-cards" id="lista-carrito">
+            <!-- Productos dinámicos aquí -->
           </div>
-          <button id="btn-finalizar-compra" class="btn btn-dark w-100">Finalizar compra</button>
+    
+          <div class="basket_footer pt-3 border-top">
+            <div class="d-flex justify-content-between mb-2">
+              <strong>Total:</strong>
+              <span id="total-carrito" class="fw-bold">$0</span>
+            </div>
+            <button id="btn-finalizar-compra" class="btn btn-dark w-100">Finalizar compra</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>  

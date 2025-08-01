@@ -2,7 +2,7 @@
 .side-panel {
     color: #333;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    max-width: 400px; /* estilo tipo Dior */
+    max-width: 400px;
   }
   
   /* ===== Carrito general ===== */
@@ -34,7 +34,7 @@
   
   /* ===== Lista de productos con scroll ===== */
   .basket_product-cards {
-    flex: 1; /* ocupa todo el espacio libre */
+    flex: 1;
     overflow-y: auto;
     padding-right: 0.5rem;
   }

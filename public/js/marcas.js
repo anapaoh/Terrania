@@ -1,4 +1,3 @@
-// Simple fade-in animation para las cards al hacer scroll
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.marca-card');
   

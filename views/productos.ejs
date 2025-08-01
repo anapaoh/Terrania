@@ -32,9 +32,25 @@
           <div class="col-12 col-md-4">
             <div class="card card-sin-borde h-100">
               <div class="producto-img" style="background-image: url('/images/productos/<%= producto.id_producto %>.png');">
-              <button class="btn-agregar">
-                <i class="bi bi-cart"></i>
-              </button>
+                <button 
+                  class="btn btn-cta btn-agregar-carrito" 
+                  type="button" 
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#offcanvasCompra"
+                  data-id="<%= producto.id_producto %>"
+                  data-nombre="<%= producto.nombre %>"
+                  data-precio="<%= producto.precio_base || producto.precio %>"
+                  data-descripcion="<%= producto.descripcion %>"
+                  data-imagen="background-image: url('/images/productos/<%= producto.id_producto %>.png');"
+                  <% if (producto.variantes && producto.variantes.length > 0) { %>
+                    data-tienevariante="true"
+                    data-variantes='<%- JSON.stringify(producto.variantes) %>'
+                  <% } else { %>
+                    data-tienevariante="false"
+                  <% } %>
+                >
+                  <i class="bi bi-cart"></i>
+                </button>               
               </div>
               <div class="contenido-producto">
                 <h5><%= producto.nombre %></h5>
@@ -63,9 +79,25 @@
               <div 
                 class="producto-img" 
                 style="background-image: url('/images/productos/<%= producto.id_producto %>.png');">
-                <button class="btn-agregar">
+                <button 
+                  class="btn btn-cta btn-agregar-carrito" 
+                  type="button" 
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#offcanvasCompra"
+                  data-id="<%= producto.id_producto %>"
+                  data-nombre="<%= producto.nombre %>"
+                  data-precio="<%= producto.precio_base || producto.precio %>"
+                  data-descripcion="<%= producto.descripcion %>"
+                  data-imagen="background-image: url('/images/productos/<%= producto.id_producto %>.png');"
+                  <% if (producto.variantes && producto.variantes.length > 0) { %>
+                    data-tienevariante="true"
+                    data-variantes='<%- JSON.stringify(producto.variantes) %>'
+                  <% } else { %>
+                    data-tienevariante="false"
+                  <% } %>
+                >
                   <i class="bi bi-cart"></i>
-                </button>
+                </button>                
               </div>
               <div class="contenido-producto">
                 <h5><%= producto.nombre %></h5>
@@ -96,7 +128,23 @@
               <div 
                 class="producto-img" 
                 style="background-image: url('/images/productos/<%= producto.id_producto %>.png');">
-                <button class="btn-agregar">
+                <button 
+                  class="btn btn-cta btn-agregar-carrito" 
+                  type="button" 
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#offcanvasCompra"
+                  data-id="<%= producto.id_producto %>"
+                  data-nombre="<%= producto.nombre %>"
+                  data-precio="<%= producto.precio_base || producto.precio %>"
+                  data-descripcion="<%= producto.descripcion %>"
+                  data-imagen="background-image: url('/images/productos/<%= producto.id_producto %>.png');"
+                  <% if (producto.variantes && producto.variantes.length > 0) { %>
+                    data-tienevariante="true"
+                    data-variantes='<%- JSON.stringify(producto.variantes) %>'
+                  <% } else { %>
+                    data-tienevariante="false"
+                  <% } %>
+                >
                   <i class="bi bi-cart"></i>
                 </button>
               </div>
@@ -128,9 +176,25 @@
               <div 
                 class="producto-img" 
                 style="background-image: url('/images/productos/<%= producto.id_producto %>.png');">
-                <button class="btn-agregar">
+                <button 
+                  class="btn btn-cta btn-agregar-carrito" 
+                  type="button" 
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#offcanvasCompra"
+                  data-id="<%= producto.id_producto %>"
+                  data-nombre="<%= producto.nombre %>"
+                  data-precio="<%= producto.precio_base || producto.precio %>"
+                  data-descripcion="<%= producto.descripcion %>"
+                  data-imagen="background-image: url('/images/productos/<%= producto.id_producto %>.png');"
+                  <% if (producto.variantes && producto.variantes.length > 0) { %>
+                    data-tienevariante="true"
+                    data-variantes='<%- JSON.stringify(producto.variantes) %>'
+                  <% } else { %>
+                    data-tienevariante="false"
+                  <% } %>
+                >
                   <i class="bi bi-cart"></i>
-                </button>
+                </button>               
               </div>
               <div class="contenido-producto">
                 <h5><%= producto.nombre %></h5>
@@ -161,9 +225,9 @@
               <div 
                 class="producto-img" 
                 style="background-image: url('/images/productos/<%= producto.id_producto %>.png');">
-                <button class="btn-agregar">
+                <button class="btn-agregar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCompra">
                   <i class="bi bi-cart"></i>
-                </button>
+                </button>                
               </div>
               <div class="contenido-producto">
                 <h5><%= producto.nombre %></h5>

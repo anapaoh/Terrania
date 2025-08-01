@@ -1,4 +1,3 @@
-// config/paypal.js
 const paypal = require('@paypal/checkout-server-sdk');
 
 const environment = new paypal.core.LiveEnvironment(
